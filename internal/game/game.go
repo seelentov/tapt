@@ -68,6 +68,7 @@ func (g *Game) Run() {
 		if err != nil {
 			continue
 		}
+
 		cursorPos := 0
 		g.inputText = ""
 
@@ -101,12 +102,11 @@ func (g *Game) Run() {
 
 		if cursorPos == len(targetText) {
 			g.level++
-			if g.level > 10 {
-				g.level = 10
-			}
-			g.score += len(targetText)
 			fmt.Println("\nCorrect! Level completed!")
 			g.lives++
+			if g.lives > 10 {
+				g.lives = 10
+			}
 			time.Sleep(500 * time.Millisecond)
 		}
 	}
